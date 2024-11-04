@@ -74,7 +74,7 @@ const SideNavDropdown: React.FC<{
 const NavItem: React.FC<{
   item: SideNavItem;
   currentPage: string;
-}> = ({ item, currentPage }) => (
+}> = ({ item }) => (
   <Button
     aria-label={item.label}
     component={Link}
