@@ -22,8 +22,7 @@ export default async function Home() {
       <RandomData data={userData} />
 
       <p>
-        Navigate to <Link href="/test">/test</Link> to test another server
-        component
+        Navigate to <Link href="/docs">/docs</Link> to test the docs
       </p>
     </main>
   );
