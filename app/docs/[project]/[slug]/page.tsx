@@ -5,13 +5,14 @@ import MarkdownRenderer from '@/app/docs/components/MarkdownRenderer';
 import PaginationLink from '@/app/docs/[project]/[slug]/components/PaginationLink';
 
 type Params = {
-  params: {
+  params: Promise<{
     project: string;
     slug: string;
-  };
+  }>;
 };
 
-export default function SingleDocPage({ params }: Params) {
+export default async function SingleDocPage(props: Params) {
+  const params = await props.params;
   const { project, slug } = params;
   const doc = getDocBySlug(project, slug);
   const { prev, next } = getPrevNextDoc(project, slug);

@@ -4,12 +4,13 @@ import MarkdownRenderer from '@/app/docs/components/MarkdownRenderer';
 import Link from 'next/link';
 
 type Params = {
-  params: {
+  params: Promise<{
     project: string;
-  };
+  }>;
 };
 
-export default function SingleDocPage({ params }: Params) {
+export default async function SingleDocPage(props: Params) {
+  const params = await props.params;
   const { project } = params;
 
   const doc = getDocBySlug('', project);
